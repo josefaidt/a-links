@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "compilerOptions": {
+    // "composite": true,
+    "target": "esnext",
+    "isolatedModules": true,
+    "module": "esnext",
+    "moduleResolution": "nodenext",
+    "useDefineForClassFields": true,
+    "strict": true
+  }
+}

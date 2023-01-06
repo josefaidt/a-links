@@ -1,0 +1,130 @@
+{
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "author": "josefaidt",
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev --parallel",
+    "lint": "prettier --plugin-search-dir . --check . && eslint .",
+    "format": "prettier --plugin-search-dir . --write ."
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.42.1",
+    "@typescript-eslint/parser": "^5.42.1",
+    "esbuild": "^0.15.13",
+    "eslint": "^8.27.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-svelte3": "^4.0.0",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1",
+    "prettier-plugin-svelte": "^2.8.0",
+    "svelte": "^3.53.0",
+    "turbo": "^1.6.3",
+    "typescript": "^4.8.4"
+  },
+  "prettier": {
+    "tabWidth": 2,
+    "bracketSpacing": true,
+    "singleQuote": true,
+    "printWidth": 80,
+    "useTabs": false,
+    "semi": false,
+    "svelteSortOrder": "options-scripts-markup-styles",
+    "svelteStrictMode": true,
+    "svelteAllowShorthand": false,
+    "plugins": [
+      "./node_modules/prettier-plugin-svelte"
+    ]
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "eslint:recommended",
+      "prettier",
+      "plugin:@typescript-eslint/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "ecmaVersion": 2022,
+      "sourceType": "module",
+      "project": "./tsconfig.json"
+    },
+    "env": {
+      "browser": true,
+      "node": true
+    },
+    "plugins": [
+      "svelte3",
+      "@typescript-eslint"
+    ],
+    "ignorePatterns": [
+      "build/"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "*.svelte"
+        ],
+        "processor": "svelte3/svelte3"
+      }
+    ],
+    "settings": {
+      "svelte3/typescript": true
+    },
+    "rules": {
+      "@typescript-eslint/prefer-ts-expect-error": "warn",
+      "@typescript-eslint/no-non-null-assertion": "off"
+    }
+  },
+  "lint-staged": {
+    "*.(ts|js|svelte)": [
+      "prettier --list-different",
+      "eslint"
+    ],
+    "*.(md|yaml|graphql,json)": "prettier --list-different"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ],
+    "rules": {
+      "header-max-length": [
+        2,
+        "always",
+        72
+      ],
+      "body-max-line-length": [
+        2,
+        "always",
+        80
+      ],
+      "scope-case": [
+        0,
+        "always",
+        "lower-case"
+      ],
+      "type-enum": [
+        2,
+        "always",
+        [
+          "build",
+          "ci",
+          "chore",
+          "docs",
+          "feat",
+          "fix",
+          "test",
+          "style",
+          "release"
+        ]
+      ]
+    }
+  },
+  "packageManager": "pnpm@7.18.0",
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

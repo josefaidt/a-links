@@ -1,0 +1,3 @@
+[submodule "apps/chrome-extension"]
+	path = apps/chrome-extension
+	url = https://github.com/josefaidt/a-links-chrome-extension
