@@ -3,14 +3,18 @@ import Layout from '../layouts/Layout.astro'
 import Main from '../components/Main.svelte'
 import Nav from '../components/Nav.svelte'
 import Hero from '../components/Hero.svelte'
+import BrowserWindow from '../components/BrowserWindow.svelte'
 ---
 
 <Layout title="a/links">
-  <header class="container relative ml-auto mr-auto">
+  <header class="container relative mx-auto max-w-5xl">
     <Nav client:load />
   </header>
   <Main >
     <Hero />
+    <div class="mx-auto max-w-4xl min-h-max">
+      <BrowserWindow client:load />
+    </div>
     <!-- <section>
       <h2 id="product" class="text-2xl font-bold tracking-tight sm:text-center sm:text-4xl">
         Product

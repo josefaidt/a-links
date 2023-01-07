@@ -1,9 +1,9 @@
 <script>
-  import { MARKETPLACE_URL, GITHUB_URL } from '../lib/constants'
+  import { MARKETPLACE_URL, GITHUB_URL, branding } from '../lib/constants'
 </script>
 
 <div class="relative px-6 lg:px-8">
-  <div class="mx-auto max-w-4xl pt-20 pb-32 sm:pt-48 sm:pb-40">
+  <div class="mx-auto max-w-4xl pt-32 pb-24 sm:pt-40 sm:pb-32">
     <div>
       <div class="hidden sm:mb-8 sm:flex sm:justify-center">
         <div
@@ -23,7 +23,7 @@
         <h1
           class="text-4xl font-bold tracking-tight sm:text-center sm:text-6xl"
         >
-          a/links is an extension for easy, composable bookmarks
+          {branding.tagline}
         </h1>
         <!-- <p class="mt-6 text-lg leading-8 text-gray-600 sm:text-center">
           Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat

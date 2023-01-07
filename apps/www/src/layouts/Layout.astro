@@ -1,4 +1,6 @@
 ---
+import { branding } from '../lib/constants';
+
 export interface Props {
   title: string
 }
@@ -14,6 +16,35 @@ const { title } = Astro.props
     <link rel="icon" type="image/svg+xml" href="/alinks-logo-sm.png" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+
+    <meta name="author" content={branding.author.handle} />
+    <meta name="copyright" content={branding.author.name} />
+    <meta name="description" content={branding.tagline} />
+    <meta name="keywords" content={branding.keywords.join(',')} />
+
+    <meta
+      name="og:url"
+      content={branding.url}
+    />
+    <meta name="og:title" content={title} />
+    <meta name="og:description" content={branding.tagline} />
+    <meta name="og:image" content={'/alinks-og.png'} />
+    <meta name="og:type" content={'website'} />
+
+    <meta name="twitter:card" content={'summary'} />
+    <meta name="twitter:creator" content={branding.author.handle} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={branding.tagline} />
+    <meta name="twitter:domain" content={branding.url} />
+    <meta name="twitter:image" content={'/alinks-og.png'} />
+
+    <!-- Panelbear -->
+    <script async src={`https://cdn.panelbear.com/analytics.js?site=${import.meta.env.PUBLIC_PANELBEAR_SITE_ID}`}></script>
+    <script>
+        window.panelbear = window.panelbear || function() { (window.panelbear.q = window.panelbear.q || []).push(arguments); };
+        panelbear('config', { site: import.meta.env.PUBLIC_PANELBEAR_SITE_ID });
+    </script>
+
   </head>
   <body class="text-base antialiased">
     <slot />
