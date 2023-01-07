@@ -1,0 +1,32 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Main from '../components/Main.svelte'
+import Nav from '../components/Nav.svelte'
+import Hero from '../components/Hero.svelte'
+---
+
+<Layout title="a/links">
+  <header class="container relative ml-auto mr-auto">
+    <Nav client:load />
+  </header>
+  <Main >
+    <Hero />
+    <!-- <section>
+      <h2 id="product" class="text-2xl font-bold tracking-tight sm:text-center sm:text-4xl">
+        Product
+      </h2>
+
+    </section>
+    <section>
+      <h2>Features</h2>
+    </section> -->
+  </Main>
+</Layout>
+
+<style>
+  main {
+    margin: auto;
+    padding: 1.5rem;
+    max-width: 60ch;
+  }
+</style>

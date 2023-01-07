@@ -36,7 +36,8 @@
     "svelteStrictMode": true,
     "svelteAllowShorthand": false,
     "plugins": [
-      "./node_modules/prettier-plugin-svelte"
+      "./node_modules/prettier-plugin-svelte",
+      "./node_modules/prettier-plugin-astro"
     ]
   },
   "eslintConfig": {
